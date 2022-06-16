@@ -5,6 +5,9 @@
 //DRAW FLOWCHARTS!
 
 // Selecting elements
+let player0El = document.querySelector('.player--0')
+let player1El = document.querySelector('.player--1')
+
 let score0El = document.querySelector('#score--0');
 let score1El = document.querySelector('#score--1');
 let diceEl = document.querySelector('.dice');
@@ -38,14 +41,13 @@ btnRoll.addEventListener('click', function (){
         currentScore+=dice;
         document.querySelector(`#current--${activePlayer}`).textContent = currentScore;
     } else {
+        document.querySelector(`#current--${activePlayer}`).textContent = 0;
+        currentScore = 0;
         activePlayer = activePlayer === 0 ? 1 : 0;
 
-        //guess what should happen on else
-        //you need to keep track of who is currently active player
-        //switch to other player
-        //current score should be reset to zero
-        //you need a total score
-        // nothing should be added to the total score if one
+        //toggle adds class if not there--if there removes it
+        player0El.classList.toggle('player--active');
+        player1El.classList.toggle('player--active');
     }
     //If true switch to next player
 })
